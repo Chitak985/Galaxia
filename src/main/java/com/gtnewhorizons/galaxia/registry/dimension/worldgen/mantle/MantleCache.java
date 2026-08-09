@@ -1,5 +1,13 @@
 package com.gtnewhorizons.galaxia.registry.dimension.worldgen.mantle;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+
+import net.minecraft.world.World;
+import net.minecraft.world.gen.NoiseGeneratorOctaves;
+
 import com.gtnewhorizon.gtnhlib.hash.Fnv1a64;
 import com.gtnewhorizon.gtnhlib.util.StdLCG;
 import com.gtnewhorizon.gtnhlib.util.data.ImmutableBlockMeta;
@@ -8,13 +16,6 @@ import com.gtnewhorizons.galaxia.registry.dimension.worldgen.TerrainConfiguratio
 import com.gtnewhorizons.galaxia.registry.dimension.worldgen.TerrainFeature;
 import com.gtnewhorizons.galaxia.registry.dimension.worldgen.TerrainFeatureApplier;
 import com.gtnewhorizons.galaxia.registry.dimension.worldgen.modifier.ModifierHandler;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.NoiseGeneratorOctaves;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
 
 public class MantleCache {
 
@@ -46,7 +47,16 @@ public class MantleCache {
                 return entry.exportData;
             }
         }
-        CacheEntry correctEntry = new CacheEntry(cubeX, cubeZ, ceiling, floor, world, random, dimension, terrainNoise, modifierHandler);
+        CacheEntry correctEntry = new CacheEntry(
+            cubeX,
+            cubeZ,
+            ceiling,
+            floor,
+            world,
+            random,
+            dimension,
+            terrainNoise,
+            modifierHandler);
         cacheEntries.add(correctEntry);
         while (cacheEntries.size() > CACHE_LIMIT) {
             cacheEntries.removeFirst();
@@ -64,7 +74,8 @@ public class MantleCache {
         private final MantleCacheData exportData;
 
         public CacheEntry(int cubeX, int cubeZ, TerrainConfiguration ceiling, TerrainConfiguration floor, World world,
-            Random random, DimensionEnum dimension, NoiseGeneratorOctaves terrainNoise, ModifierHandler modifierHandler) {
+            Random random, DimensionEnum dimension, NoiseGeneratorOctaves terrainNoise,
+            ModifierHandler modifierHandler) {
             this.cubeX = cubeX;
             this.cubeZ = cubeZ;
             this.world = world;

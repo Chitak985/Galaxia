@@ -1,5 +1,10 @@
 package com.gtnewhorizons.galaxia.registry.dimension.planets;
 
+import static com.gtnewhorizons.galaxia.registry.block.PlanetBlocks.*;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase;
+
 import com.gtnewhorizon.gtnhlib.util.data.BlockMeta;
 import com.gtnewhorizons.galaxia.client.EnumTextures;
 import com.gtnewhorizons.galaxia.registry.block.GalaxiaBlocksEnum;
@@ -22,10 +27,6 @@ import com.gtnewhorizons.galaxia.registry.dimension.worldgen.feature.CrystalClus
 import com.gtnewhorizons.galaxia.registry.dimension.worldgen.feature.FluidSpringFeature;
 import com.gtnewhorizons.galaxia.registry.dimension.worldgen.feature.GeodeFeature;
 import com.gtnewhorizons.galaxia.registry.dimension.worldgen.feature.StalactiteFeature;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
-
-import static com.gtnewhorizons.galaxia.registry.block.PlanetBlocks.*;
 
 /**
  * The class holding all data related to the dimension Moon
@@ -253,7 +254,12 @@ public final class Moon {
                 return basalt;
             })
             .caveShape(new CaveShapeTubes((byte) 16, (byte) 4, (short) 100))
-            .terrain3d(new FloatingPancake(new TerrainModifierEntry(TerrainModifier.WEIRDNESS, TerrainModifier.WEIRDNESS.minimum, TerrainModifier.WEIRDNESS.middle)))
+            .terrain3d(
+                new FloatingPancake(
+                    new TerrainModifierEntry(
+                        TerrainModifier.WEIRDNESS,
+                        TerrainModifier.WEIRDNESS.minimum,
+                        TerrainModifier.WEIRDNESS.middle)))
             .surfaceFeature(
                 CraterFeature.builder()
                     .rarity(64)

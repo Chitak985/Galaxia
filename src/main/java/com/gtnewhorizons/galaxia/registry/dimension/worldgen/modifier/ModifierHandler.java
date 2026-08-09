@@ -1,14 +1,16 @@
 package com.gtnewhorizons.galaxia.registry.dimension.worldgen.modifier;
 
-import com.gtnewhorizon.gtnhlib.util.StdLCG;
-import com.gtnewhorizons.galaxia.registry.dimension.worldgen.TerrainModifier;
-import com.gtnewhorizons.galaxia.registry.dimension.worldgen.TerrainModifierEntry;
+import java.util.Arrays;
+
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 
-import java.util.Arrays;
+import com.gtnewhorizon.gtnhlib.util.StdLCG;
+import com.gtnewhorizons.galaxia.registry.dimension.worldgen.TerrainModifier;
+import com.gtnewhorizons.galaxia.registry.dimension.worldgen.TerrainModifierEntry;
 
 public class ModifierHandler {
+
     private final NoiseGeneratorOctaves weirdnessNoise;
 
     private double[] weirdnessCache = defaultModifier();

@@ -1,9 +1,9 @@
 package com.gtnewhorizons.galaxia.registry.dimension.worldgen.details;
 
+import java.util.Random;
+
 import com.gtnewhorizons.galaxia.registry.dimension.worldgen.TerrainModifierEntry;
 import com.gtnewhorizons.galaxia.registry.dimension.worldgen.modifier.ModifierHandler;
-
-import java.util.Random;
 
 public class FloatingPancake implements Terrain3d {
 
